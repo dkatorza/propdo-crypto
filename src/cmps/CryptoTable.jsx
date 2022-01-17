@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
+import TablePagination from '@mui/material/TablePagination';
 import Paper from '@mui/material/Paper';
-import { Container } from '@mui/material';
 import axios from 'axios';
 import { CryptoTableHeader } from './CryptoTableHeader';
 import { CryptoTablePreview } from './CryptoTablePreview';
@@ -14,6 +14,23 @@ export const CryptoTable = () => {
   }, []);
 
   const [coins, setCoins] = useState('');
+  const { count, page, rowsPerPage, onPageChange } = props;
+
+  const handleFirstPageButtonClick = (event) => {
+    onPageChange(event, 0);
+  };
+
+  const handleBackButtonClick = (event) => {
+    onPageChange(event, page - 1);
+  };
+
+  const handleNextButtonClick = (event) => {
+    onPageChange(event, page + 1);
+  };
+
+  const handleLastPageButtonClick = (event) => {
+    onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+  };
 
   const fetchCoins = async () => {
     try {
@@ -30,18 +47,34 @@ export const CryptoTable = () => {
   };
 
   return (
-    <Container style={{ textAlign: 'center', width: '100%' }}>
+    <>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label='simple table'>
+        <Table>
           <CryptoTableHeader />
           <TableBody>
             {coins &&
               coins.map((coin, idx) => (
-                <CryptoTablePreview key={idx} coin={coin} />
+                <CryptoTablePreview key={idx} coin={coin} lineNumber={idx} />
               ))}
           </TableBody>
         </Table>
       </TableContainer>
-    </Container>
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+        colSpan={3}
+        count={coins.length}
+        rowsPerPage={10}
+        page={1}
+        SelectProps={{
+          inputProps: {
+            'aria-label': 'rows per page',
+          },
+          native: true,
+        }}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+        ActionsComponent={TablePaginationActions}
+      />
+    </>
   );
 };

@@ -1,5 +1,5 @@
 import { TablePage } from './pages/TablePage';
-import { ChartPage } from './pages/ChartPage';
+import { Charts } from './pages/Charts';
 
 export const routes = [
   {
@@ -7,7 +7,7 @@ export const routes = [
     component: <TablePage />,
   },
   {
-    path: '/chartpage',
-    component: <ChartPage />,
+    path: '/charts',
+    component: <Charts />,
   },
 ];

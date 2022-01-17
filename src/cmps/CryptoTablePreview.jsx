@@ -1,12 +1,17 @@
-import { TableCell, TableRow } from '@mui/material';
+import { Table, TableCell, TableRow } from '@mui/material';
 
-export const CryptoTablePreview = ({ coin }) => {
+export const CryptoTablePreview = ({ coin, lineNumber }) => {
   return (
-    <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+    <TableRow className='pointer'>
+      <TableCell>{lineNumber + 1}</TableCell>
       <TableCell component='th' scope='row'>
-        <img src={coin.icon} />
-        {coin.name}
-        {coin.symbol}
+        <div className='name-cell-wrapper'>
+          {' '}
+          <img className='imgs' src={coin.icon} />
+          <span>{coin.name}</span>
+          <span>&#xB7;</span>
+          <span>{coin.symbol}</span>
+        </div>
       </TableCell>
       <TableCell align='right'>{coin.priceChange1d}</TableCell>
       <TableCell align='right'>{coin.price}</TableCell>

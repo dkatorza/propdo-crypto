@@ -1,0 +1,25 @@
+.MuiTableContainer-root {
+  width: 100%;
+  max-height: 90vh;
+}
+
+.name-cell-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 200px;
+  align-items: center;
+
+  & > img {
+    width: 25px;
+    height: 100%;
+    margin-right: 0.5rem;
+  }
+
+  & > span {
+    margin-right: 0.5rem;
+  }
+
+  & > span:last-of-type {
+    color: #b6b6b6;
+  }
+}

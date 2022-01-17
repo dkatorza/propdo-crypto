@@ -1,4 +1,4 @@
-import { Table, TableCell, TableRow } from '@mui/material';
+import { TableCell, TableRow } from '@mui/material';
 
 export const CryptoTablePreview = ({ coin, lineNumber }) => {
   return (
@@ -6,7 +6,6 @@ export const CryptoTablePreview = ({ coin, lineNumber }) => {
       <TableCell>{lineNumber + 1}</TableCell>
       <TableCell component='th' scope='row'>
         <div className='name-cell-wrapper'>
-          {' '}
           <img className='imgs' src={coin.icon} />
           <span>{coin.name}</span>
           <span>&#xB7;</span>

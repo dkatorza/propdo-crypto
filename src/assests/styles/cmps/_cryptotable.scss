@@ -6,7 +6,7 @@
 .name-cell-wrapper {
   display: flex;
   justify-content: flex-start;
-  width: 200px;
+  min-width: 250px;
   align-items: center;
 
   & > img {
@@ -23,3 +23,8 @@
     color: #b6b6b6;
   }
 }
+
+// .MuiTablePagination-root {
+//   display: flex;
+//   justify-self: flex-end;
+// }

@@ -19,6 +19,12 @@
     margin-right: 0.5rem;
   }
 
+  & > span:nth-child(3) {
+    color: #b6b6b6;
+    font-weight: '600';
+    font-size: rem(28px);
+  }
+
   & > span:last-of-type {
     color: #b6b6b6;
   }

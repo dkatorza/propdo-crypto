@@ -1,34 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
-import axios from 'axios';
 import { CryptoTableHeader } from './CryptoTableHeader';
 import { CryptoTablePreview } from './CryptoTablePreview';
 import { TablePagination } from '@mui/material';
+import { GlobalContext } from '../context/GlobalState';
 
 export const CryptoTable = () => {
+  const { loadCoins } = useContext(GlobalContext);
+  const { coins } = useContext(GlobalContext);
+
   useEffect(() => {
-    fetchCoins();
+    loadCoins();
   }, []);
 
-  const [coins, setCoins] = useState('');
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(20);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(20);
 
-  const fetchCoins = async () => {
-    try {
-      const {
-        data: { coins },
-      } = await axios.get(
-        'https://api.coinstats.app/public/v1/coins?skip=0&limit=100&currency=AMD'
-      );
-      setCoins(coins);
-    } catch (err) {
-      console.log(err);
-    }
-  };
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -38,6 +28,7 @@ export const CryptoTable = () => {
     setPage(0);
   };
 
+  if (!coins) return <div>loading...</div>;
   return (
     <>
       <TableContainer component={Paper} className='scroller'>

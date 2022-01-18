@@ -1,18 +1,10 @@
 // Colors
 $clrWhite: hsl(0, 0%, 100%);
-$clrLightgreen: hsl(164, 100%, 50%);
-$clrOrange: hsl(32, 100%, 49%);
-$clrGold: hsl(43, 100%, 51%);
-$clrGoldalpha: hsl(27, 87%, 67%);
-$clrYellowlight: hsl(42, 100%, 70%);
-$clrRedish: hsl(346, 84%, 61%);
-$clrBluesoft: hsl(185, 100%, 50%);
+$mainPropdoColor: hsl(225, 100%, 14%);
 $clrBlack: hsl(0, 0%, 12%);
-$clrBlackExtra: hsl(0, 0%, 11%);
-$clrBlackTrans: hsla(0, 0%, 0%, 0.384);
 
 //Default background color
-$bgrclr1: hsl(0, 0%, 12%);
+$bgrclr1: $clrBlack;
 
 //Buttons
 

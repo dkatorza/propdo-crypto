@@ -40,7 +40,7 @@ export const CryptoTable = () => {
 
   return (
     <>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} className='scroller'>
         <Table>
           <CryptoTableHeader />
           <TableBody>
@@ -54,6 +54,10 @@ export const CryptoTable = () => {
         </Table>
       </TableContainer>
       <TablePagination
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-end',
+        }}
         rowsPerPageOptions={[20, 100, 300]}
         count={coins.length}
         rowsPerPage={rowsPerPage}

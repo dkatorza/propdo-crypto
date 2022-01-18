@@ -1,3 +1,11 @@
+import { Logo } from './Logo';
+import { Sidebar } from './Sidebar';
+
 export const Header = () => {
-  return <div>propdoCrypto</div>;
+  return (
+    <nav>
+      <Sidebar />
+      <Logo />
+    </nav>
+  );
 };

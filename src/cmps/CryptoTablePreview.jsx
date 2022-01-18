@@ -1,4 +1,5 @@
 import { TableCell, TableRow } from '@mui/material';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 export const CryptoTablePreview = ({ coin, lineNumber }) => {
   return (
@@ -12,13 +13,15 @@ export const CryptoTablePreview = ({ coin, lineNumber }) => {
           <span>{coin.symbol}</span>
         </div>
       </TableCell>
-      <TableCell align='right'>{coin.priceChange1d}</TableCell>
+      <TableCell align='right'>{coin.priceChange1d}%</TableCell>
       <TableCell align='right'>{coin.price}</TableCell>
       <TableCell align='right'>{coin.priceBtc}</TableCell>
       <TableCell align='right'>{coin.marketCap}</TableCell>
       <TableCell align='right'>{coin.volume}</TableCell>
       <TableCell align='right'>{coin.volume}</TableCell>
-      <TableCell align='right'>{coin.volume}</TableCell>
+      <TableCell align='center'>
+        <MoreHorizIcon />
+      </TableCell>
     </TableRow>
   );
 };

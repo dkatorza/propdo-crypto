@@ -1,9 +1,8 @@
 # propdoCrypto
 
-Home assignment - crypto coins dashboard with charts
+Crypto coins dashboard with charts
 
 <img src="https://i.im.ge/2022/01/18/XqVJ9L.png"/>
-
 
 ## Available Scripts
 
